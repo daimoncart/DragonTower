@@ -28,6 +28,7 @@ public class Game {
 
     public void clashDragons()
     {
+        System.out.println();
         printDashes();
         if (dragons.size()<2)
         {

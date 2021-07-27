@@ -16,5 +16,8 @@ public class Demo {
         dragon1.restore();
         System.out.println(dragon1);
 
+        var dragon3 = new Dragon("Forget-Me-Not");
+        game.join(dragon3);
+        game.clashDragons();
     }
 }

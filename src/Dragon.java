@@ -65,12 +65,12 @@ public class Dragon implements Iterable<Integer> {
     public void save()
     {
         System.arraycopy(stats, 0, copy, 0, 3);
-        System.out.println(this.name + " has its stats safely stored.");
+        System.out.println("✔ " + this.name + " has its stats safely stored.");
     }
 
     public void restore(){
         System.arraycopy(copy, 0, stats, 0, 3);
-        System.out.println(this.name + " has its stats safely restored.");
+        System.out.println("🔙 " + this.name + " has its stats safely restored.");
     }
 
 
