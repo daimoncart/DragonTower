@@ -14,7 +14,7 @@ public class Dragon implements Iterable<Integer> {
     private final int firebreathing = 2;
 
     public Dragon(String name){
-        this.name = name;
+        this.name = name + " the dragon";
         this.stats[intelligence] = 25;
         this.stats[firebreathing] = 25;
         this.stats[flight] = 25;
@@ -42,13 +42,13 @@ public class Dragon implements Iterable<Integer> {
 
     public void setGame(Game game) {
         this.game = game;
-    };
+    }
 
     @Override
     public String toString() {
         return "Dragon{" +
                 "name='" + name + '\'' +
-                ", average stats=" + average() +
+                ", average stats=" + (int) average() +
                 '}';
     }
 
@@ -57,13 +57,20 @@ public class Dragon implements Iterable<Integer> {
         return IntStream.of(stats).average().getAsDouble();
     }
 
+    public double max()
+    {
+        return IntStream.of(stats).max().getAsInt();
+    }
+
     public void save()
     {
         System.arraycopy(stats, 0, copy, 0, 3);
+        System.out.println(this.name + " has its stats safely stored.");
     }
 
     public void restore(){
         System.arraycopy(copy, 0, stats, 0, 3);
+        System.out.println(this.name + " has its stats safely restored.");
     }
 
 

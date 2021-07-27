@@ -3,10 +3,15 @@ public class Demo {
         var game = Game.getInstance();
         var dragon1 = new Dragon("Fluffy");
         game.join(dragon1);
-        dragon1.setFirebreathing(67);
-        System.out.println(dragon1);
+        game.clashDragons();
+
         dragon1.save();
-        dragon1.setFlight(1);
+
+        var dragon2 = new Dragon("Bimbo");
+        game.join(dragon2);
+
+        game.clashDragons();
+
         System.out.println(dragon1);
         dragon1.restore();
         System.out.println(dragon1);
