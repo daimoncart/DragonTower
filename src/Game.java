@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Game {
     private static Game instance;
@@ -39,6 +40,14 @@ public class Game {
             encounter.clash(dragons.get(0), dragons.get(1));
         }
         printDashes();
+    }
+
+    public void printStats()
+    {
+        dragons.stream()
+                .sorted()
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
     }
 
     private static void printDashes() {

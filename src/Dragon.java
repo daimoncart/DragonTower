@@ -4,7 +4,7 @@ import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
-public class Dragon implements Iterable<Integer> {
+public class Dragon implements Iterable<Integer>, Comparable<Dragon> {
     private Game game;
     private String name;
     private int [] stats = new int[3];
@@ -46,14 +46,8 @@ public class Dragon implements Iterable<Integer> {
 
     @Override
     public String toString() {
-        return "Dragon{" +
-                "name='" + name + '\'' +
-                ", average stats=" + (int) average() +
-                System.lineSeparator() +
-                "(intelligence: " + stats[intelligence] +
-                "; flight: " + stats[flight] +
-                "; firebreathing: " + stats[firebreathing] + ")" +
-                '}' + System.lineSeparator();
+        return String.format("%s : %s (%s, %s, %s)", name, average(),
+                stats[intelligence], stats[flight], stats[firebreathing]);
     }
 
     public double average()
@@ -83,6 +77,11 @@ public class Dragon implements Iterable<Integer> {
     {
         for (int x : stats)
             action.accept(x);
+    }
+
+    @Override
+    public int compareTo(Dragon other) {
+        return Double.compare(this.average(), other.average());
     }
 
     @Override

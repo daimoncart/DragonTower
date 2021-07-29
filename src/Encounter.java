@@ -8,9 +8,7 @@ public class Encounter {
         {
             d1.setIntelligence(d1.getIntelligence()+getPositive10());
             d2.setIntelligence(d2.getIntelligence()+getPositive10());
-            System.out.println("In the course of a friendly encounter");
-            System.out.println(d1.getName() + " has increased its intelligence to " + d1.getIntelligence() + ".");
-            System.out.println("and " + d2.getName() + " has increased its intelligence to " + d2.getIntelligence() + ".");
+            System.out.println("🤍 Friendly encounter: " + d1.getName() + " : " + d2.getName());
         } else
         {
             if (d1.max()*d1.average()*Math.random() > d2.max()*d2.average()*Math.random())
@@ -25,6 +23,7 @@ public class Encounter {
             }
             increaseStats();
             decreaseStats();
+            System.out.println("⚔ Hostile encounter: " + winner.getName() + " (won) : " + loser.getName() + " (lost)");
         }
     }
 
@@ -33,9 +32,6 @@ public class Encounter {
         winner.setIntelligence(winner.getIntelligence()+getIncrease());
         winner.setFlight(winner.getFlight()+getIncrease());
         winner.setFirebreathing(winner.getFirebreathing()+getIncrease());
-        System.out.println("In the course of a hostile encounter");
-        System.out.println(winner.getName() + " has won. Its average stats are now " + (int) winner.average() + ".");
-        System.out.println("Its previous average stats were " + (int) avgBefore + ".");
     }
 
     private void decreaseStats(){
@@ -43,8 +39,6 @@ public class Encounter {
         loser.setIntelligence(loser.getIntelligence()+getDecrease());
         loser.setFlight(loser.getFlight()+getDecrease());
         loser.setFirebreathing(loser.getFirebreathing()+getDecrease());
-        System.out.println(loser.getName() + " has lost. Its average stats are now " + (int) loser.average() + ".");
-        System.out.println("Its previous average stats were " + (int) avgBefore + ".");
     }
 
     private static int getIncrease()
