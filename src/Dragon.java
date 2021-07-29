@@ -14,7 +14,7 @@ public class Dragon implements Iterable<Integer>, Comparable<Dragon> {
     private final int firebreathing = 2;
 
     public Dragon(String name){
-        this.name = name.toUpperCase() + " the dragon";
+        this.name = name.toUpperCase();
         this.stats[intelligence] = 25;
         this.stats[firebreathing] = 25;
         this.stats[flight] = 25;
@@ -46,7 +46,7 @@ public class Dragon implements Iterable<Integer>, Comparable<Dragon> {
 
     @Override
     public String toString() {
-        return String.format("%s : %s (%s, %s, %s)", name, average(),
+        return String.format("%s : %s (%s, %s, %s)", name, round(average()),
                 stats[intelligence], stats[flight], stats[firebreathing]);
     }
 
@@ -71,6 +71,12 @@ public class Dragon implements Iterable<Integer>, Comparable<Dragon> {
         System.out.println("✔ " + this.name + " has its stats safely restored.");
     }
 
+    private static double round(double value) {
+        long factor = (long) Math.pow(10, 2);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
+    }
 
     @Override
     public void forEach(Consumer<? super Integer> action)

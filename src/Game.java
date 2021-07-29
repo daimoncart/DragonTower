@@ -30,7 +30,6 @@ public class Game {
     public void clashDragons()
     {
         System.out.println();
-        printDashes();
         if (dragons.size()<2)
         {
             System.out.println("Clashes are not possible. Not enough dragons in the game.");
@@ -39,19 +38,13 @@ public class Game {
             Collections.shuffle(dragons);
             encounter.clash(dragons.get(0), dragons.get(1));
         }
-        printDashes();
     }
 
     public void printStats()
     {
         dragons.stream()
-                .sorted()
+                .sorted(Collections.reverseOrder())
                 .collect(Collectors.toList())
                 .forEach(System.out::println);
     }
-
-    private static void printDashes() {
-        System.out.println("---------------------------");
-    }
-
 }

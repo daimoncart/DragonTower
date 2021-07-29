@@ -1,5 +1,3 @@
-
-
 public class Encounter {
     Dragon winner;
     Dragon loser;
@@ -28,14 +26,12 @@ public class Encounter {
     }
 
     private void increaseStats(){
-        double avgBefore = (int) winner.average();
         winner.setIntelligence(winner.getIntelligence()+getIncrease());
         winner.setFlight(winner.getFlight()+getIncrease());
         winner.setFirebreathing(winner.getFirebreathing()+getIncrease());
     }
 
     private void decreaseStats(){
-        double avgBefore = (int) loser.average();
         loser.setIntelligence(loser.getIntelligence()+getDecrease());
         loser.setFlight(loser.getFlight()+getDecrease());
         loser.setFirebreathing(loser.getFirebreathing()+getDecrease());
